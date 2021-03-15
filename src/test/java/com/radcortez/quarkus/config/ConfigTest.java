@@ -18,6 +18,7 @@ public class ConfigTest {
 
         assertConfig("external.property", "from-external");
         assertConfig("override.external.profile.property", "from-external-test");
+        assertConfig("override.external.profile.main.property", "from-external-%test");
     }
 
     private static void assertConfig(String name, String expected) {

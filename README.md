@@ -23,6 +23,8 @@ curl http://localhost:8080/config/external.property
 {"name":"external.property","value":"from-external"}
 curl http://localhost:8080/config/override.external.profile.property
 {"name":"override.external.profile.property","value":"from-external-dev"
+curl http://localhost:8080/config/override.external.profile.main.property
+{"name":"override.external.profile.main.property","value":"from-external-%dev"}
 ```
 
 ## Expected Results in Prod mode:
@@ -41,4 +43,6 @@ curl http://localhost:8080/config/external.property
 {"name":"external.property","value":"from-external"}
 curl http://localhost:8080/config/override.external.profile.property
 {"name":"override.external.profile.property","value":"from-external-prod"
+curl http://localhost:8080/config/override.external.profile.main.property
+{"name":"override.external.profile.main.property","value":"from-external-%prod"}
 ```
