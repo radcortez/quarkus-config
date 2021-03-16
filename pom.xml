@@ -31,6 +31,11 @@
   </dependencyManagement>
   <dependencies>
     <dependency>
+      <groupId>io.smallrye.config.examples</groupId>
+      <artifactId>configmap</artifactId>
+      <version>1.11.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-arc</artifactId>
     </dependency>
@@ -83,7 +88,7 @@
         <version>3.2.0</version>
         <executions>
           <execution>
-            <id>copy-resources</id>
+            <id>copy-external</id>
             <phase>validate</phase>
             <goals>
               <goal>copy-resources</goal>
@@ -93,6 +98,21 @@
               <resources>
                 <resource>
                   <directory>external</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-configmap</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/target/configmap</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>configmap</directory>
                 </resource>
               </resources>
             </configuration>
